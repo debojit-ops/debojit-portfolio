@@ -6,7 +6,8 @@ import { useMediaQuery } from "react-responsive";
 import { Astronaut } from "../components/Astronaut";
 import HeroText from "../components/HeroText";
 import Loader from "../components/Loader";
-import ParallaxBackground from "../components/ParallaxBackground";
+import ParallaxBackground from "../components/parallaxBackground";
+
 
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
