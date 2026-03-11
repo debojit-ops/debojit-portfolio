@@ -51,6 +51,7 @@ const HeroText = () => {
             XR Solutions
           </motion.p>
         </div>
+<<<<<<< HEAD
         <motion.a
           href="/XR_resume_DebojitGhosh.pdf"
           download="Debojit_Ghosh_Resume.pdf"
@@ -79,6 +80,8 @@ const HeroText = () => {
             </span>
           </span>
         </motion.a>
+=======
+>>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
       </div>
       {/* Mobile View */}
       <div className="flex- flex-col space-y-6 md:hidden">
@@ -122,6 +125,7 @@ const HeroText = () => {
             Web Applications
           </motion.p>
         </div>
+<<<<<<< HEAD
         <motion.a
           href="/XR_resume_DebojitGhosh.pdf"
           download="Debojit_Ghosh_Resume.pdf"
@@ -150,6 +154,8 @@ const HeroText = () => {
             </span>
           </span>
         </motion.a>
+=======
+>>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
       </div>
     </div>
   );
