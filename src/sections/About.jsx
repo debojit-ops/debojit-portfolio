@@ -96,25 +96,36 @@ const About = () => {
         <div className="grid-special-color grid-4">
           <div className="flex flex-col items-center justify-center gap-4 size-full">
             <p className="text-center headtext">
-              Do you want to start a project together?
+              Let's build something immersive together.
             </p>
             <CopyEmailButton />
           </div>
         </div>
         {/* Grid 5 */}
         <div className="grid-default-color grid-5">
-          <div className="z-10 w-[50%]">
-            <p className="headText" >Teck Stack</p>
-            <p className="subtext">
-          I build immersive XR experiences using a focused, production-ready tech stack : 
-          <p className="subtext space-y-4"><br />
-            <span className="block pl-4">• XR & AR: Unity, AR Foundation, XR Toolkit</span>
-            <span className="block pl-4">• 3D & Spatial: WebXR, Three.js, Blender</span>
-            <span className="block pl-4">• Development: C#, JavaScript, React</span>
-            <span className="block pl-4">• AI: LLMs, LangChain, OpenAI</span>
-          </p>
-
+          <div className="z-10 w-[65%]">
+            <p className="mb-2.5 text-xl font-semibold md:text-2xl">Tech Stack</p>
+            <p className="mb-3.5 text-sm leading-relaxed text-neutral-400 md:text-base">
+              I develop immersive XR, AR, and VR applications using modern spatial computing tools and full-stack technologies:
             </p>
+            <div className="space-y-2.5 text-sm leading-relaxed md:text-base">
+              <div>
+                <span className="font-bold text-white">XR / AR / VR:</span>
+                <span className="ml-2 text-neutral-400">Unity, AR Foundation, XR Interaction Toolkit</span>
+              </div>
+              <div>
+                <span className="font-bold text-white">3D & Spatial:</span>
+                <span className="ml-2 text-neutral-400">WebXR, Three.js, Blender</span>
+              </div>
+              <div>
+                <span className="font-bold text-white">Full-Stack:</span>
+                <span className="ml-2 text-neutral-400">MERN Stack, AngularJS, React Native</span>
+              </div>
+              <div>
+                <span className="font-bold text-white">AI Systems:</span>
+                <span className="ml-2 text-neutral-400">LLMs, LangChain, OpenAI APIs</span>
+              </div>
+            </div>
           </div>
           <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
             <Frameworks />
