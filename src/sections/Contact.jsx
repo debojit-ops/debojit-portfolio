@@ -30,11 +30,7 @@ const Contact = () => {
 //service_8xpwu0b
 // template_fvbjokr
     try {
-<<<<<<< HEAD
       console.log("Form submitted:", formData);
-=======
-      console.log("From submitted:", formData);
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
       await emailjs.send(
         "service_8xpwu0b",
         "template_94s3ic2",
@@ -42,10 +38,7 @@ const Contact = () => {
           from_name: formData.name,
           to_name: "Debojit",
           from_email: formData.email,
-<<<<<<< HEAD
           reply_to: formData.email,
-=======
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
           to_email: "debojitghosh223@gmail.com",
           message: formData.message,
         },
@@ -61,11 +54,7 @@ const Contact = () => {
     }
   };
   return (
-<<<<<<< HEAD
     <section id="contact" className="relative flex items-center c-space section-spacing">
-=======
-    <section className="relative flex items-center c-space section-spacing">
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}

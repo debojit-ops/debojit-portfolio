@@ -12,11 +12,7 @@ import ParallaxBackground from "../components/parallaxBackground";
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   return (
-<<<<<<< HEAD
     <section id="home" className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
-=======
-    <section className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
       <HeroText />
       <ParallaxBackground />
       <figure

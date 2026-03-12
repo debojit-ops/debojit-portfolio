@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-<<<<<<< HEAD
 
 function Navigation() {
   const handleClick = (e, targetId) => {
@@ -15,40 +14,26 @@ function Navigation() {
     <ul className="nav-ul">
       <li className="nav-li">
         <a className="nav-link" href="#home" onClick={(e) => handleClick(e, '#home')}>
-=======
-function Navigation() {
-  return (
-    <ul className="nav-ul">
-      <li className="nav-li">
-        <a className="nav-link" href="#home">
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
           Home
         </a>
       </li>
       <li className="nav-li">
-<<<<<<< HEAD
         <a className="nav-link" href="#about" onClick={(e) => handleClick(e, '#about')}>
-=======
-        <a className="nav-link" href="#about">
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
           About
         </a>
       </li>
       <li className="nav-li">
-<<<<<<< HEAD
         <a className="nav-link" href="#work" onClick={(e) => handleClick(e, '#work')}>
-=======
-        <a className="nav-link" href="#work">
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
           Work
         </a>
       </li>
       <li className="nav-li">
-<<<<<<< HEAD
+        <a className="nav-link" href="#academics" onClick={(e) => handleClick(e, '#academics')}>
+          MyAcademics
+        </a>
+      </li>
+      <li className="nav-li">
         <a className="nav-link" href="#contact" onClick={(e) => handleClick(e, '#contact')}>
-=======
-        <a className="nav-link" href="#contact">
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
           Contact
         </a>
       </li>

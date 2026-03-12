@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800;900&display=swap");
-=======
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
 @import "tailwindcss";
 @theme {
   --color-primary: #030412;
@@ -50,7 +47,6 @@
       transform: translateY(calc(-100% - var(--gap)));
     }
   }
-<<<<<<< HEAD
 
   @keyframes gradient {
     0% {
@@ -114,8 +110,6 @@
       opacity: 0;
     }
   }
-=======
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d
 }
 body {
   background: #030412;
@@ -206,10 +200,7 @@ body {
 .field-input-focus {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
 }
-<<<<<<< HEAD
 
 .font-exo {
   font-family: 'Exo 2', sans-serif;
 }
-=======
->>>>>>> a52eb62ad0ce0f30fda993a20fc3e6072087b92d

@@ -10,7 +10,7 @@ export const myProjects = [
       "Integrated APIs to fetch and load 3D models dynamically.",
       "Optimized user flow to reduce setup time and improve interaction accuracy.",
     ],
-    href: "",
+    href: "https://www.linkedin.com/posts/connectwith-debojitghosh_augmentedreality-unity3d-arcore-activity-7367934398937120769-hogN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEksQLgByly_V2bEFLZBNGq6fGTZybbLQKc",
     logo: "",
     image: "/assets/projects/RealityDrop.png",
     tags: [
@@ -47,7 +47,7 @@ export const myProjects = [
       "Designed modular scenes and reusable UI components for category-based browsing.",
       "Focused on realistic placement and smooth user interactions.",
     ],
-    href: "",
+    href: "https://www.linkedin.com/posts/connectwith-debojitghosh_augmentedreality-unity3d-arfoundation-activity-7415061945059475457-pWuB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEksQLgByly_V2bEFLZBNGq6fGTZybbLQKc",
     logo: "",
     image: "/assets/projects/TryMyFurnitureImg.png",
     tags: [
@@ -84,7 +84,7 @@ export const myProjects = [
       "Used UI controls to explore internal structures like pipes and hulls.",
       "Designed for educational and training-based visualization.",
     ],
-    href: "",
+    href: "https://www.linkedin.com/posts/connectwith-debojitghosh_augmentedreality-unity3d-arcore-activity-7353015614275276800-9z8W?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEksQLgByly_V2bEFLZBNGq6fGTZybbLQKc",
     logo: "",
     image: "/assets/projects/JetTurbine.png",
     tags: [
@@ -121,7 +121,7 @@ export const myProjects = [
       "Designed progressive difficulty to enhance player engagement.",
       "Optimized performance for smooth gameplay.",
     ],
-    href: "",
+    href: "https://www.linkedin.com/posts/connectwith-debojitghosh_gamedevelopment-unity-unity2d-activity-7352317725932752896-G-II?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEksQLgByly_V2bEFLZBNGq6fGTZybbLQKc",
     logo: "",
     image: "/assets/projects/SpaceQuest2D.png",
     tags: [
@@ -158,7 +158,7 @@ export const myProjects = [
       "Analyzed accuracy, stability, and usability for research purposes.",
       "Used results to evaluate real-world AR use cases.",
     ],
-    href: "",
+    href: "https://www.linkedin.com/posts/connectwith-debojitghosh_augmentedreality-unity3d-arfoundation-activity-7407703639550496768-oeOK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEksQLgByly_V2bEFLZBNGq6fGTZybbLQKc",
     logo: "",
     image: "/assets/projects/ComparisonAppImg.jpg",
     tags: [
