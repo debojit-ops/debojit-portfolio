@@ -19,7 +19,7 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I'm Debojit Ghosh</p>
             <p className="subtext">
-              I’m an XR developer focused on building immersive AR experiences, interactive 3D systems, and modern WebXR applications that bridge real and digital worlds.
+              I'm an XR developer experienced in XR projects for Indian Defence Training focused on building immersive AR experiences, interactive 3D systems, and modern WebXR applications that bridge real and digital worlds. Proficient in Unity, AI integration, and cross-platform development.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />

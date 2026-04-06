@@ -1,5 +1,42 @@
 export const myProjects = [
   {
+    id: 0,
+    title: "VR Training Simulation – Indian Defence",
+    description: "",
+    subDescription: [
+      "Developed a VR-based aircraft simulation in Unity with dual radar systems using client-server architecture.",
+      "Implemented real-time LAN communication using Mirror TCP for persistent multi-device synchronization.",
+      "Transmitted and visualized live aircraft data including coordinates, distance metrics, and positional tracking.",
+      "Solved low-latency synchronization challenges to maintain real-time interaction across devices.",
+      "Supported both same-system and cross-system deployment with stable client-server connection via IP address.",
+    ],
+    href: "",
+    logo: "",
+    image: "/assets/projects/VRDefenceSim.png",
+    tags: [
+      {
+        id: 1,
+        name: "Unity VR",
+        path: "/assets/logos/unity.png",
+      },
+      {
+        id: 2,
+        name: "Mirror TCP",
+        path: "/assets/logos/csharp.svg",
+      },
+      {
+        id: 3,
+        name: "C#",
+        path: "/assets/logos/csharp-pink.png",
+      },
+      {
+        id: 4,
+        name: "Networking",
+        path: "/assets/logos/git.svg",
+      },
+    ],
+  },
+  {
     id: 1,
     title: "Reality Drop AR",
     description:
@@ -186,6 +223,42 @@ export const myProjects = [
   },
   {
     id: 6,
+    title: "Progressify — AI-Powered Adaptive Learning Platform",
+    description: "",
+    subDescription: [
+      "LangGraph + Groq LLaMA 3.3-70B orchestrates a multi-step AI pipeline that generates checkpoints, study material, and MCQs for any topic via a FastAPI backend.",
+      "Adaptive 70% mastery threshold with Feynman Teaching fallback — re-explains failed concepts using the LLM before regenerating harder assessments.",
+      "React 18 custom UI with dark mode, real-time timer, mobile drawer sidebar, and bottom nav — zero UI frameworks.",
+      "FastAPI + ChromaDB handles auth, score tracking, badges, and full session persistence across refreshes.",
+    ],
+    href: "https://agentic-ai-1-z3sp.onrender.com/",
+    logo: "",
+    image: "/assets/projects/AdaptiveLearning.png",
+    tags: [
+      {
+        id: 1,
+        name: "LangGraph",
+        path: "/assets/logos/git.svg",
+      },
+      {
+        id: 2,
+        name: "Groq LLaMA",
+        path: "/assets/logos/vitejs.svg",
+      },
+      {
+        id: 3,
+        name: "FastAPI",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 4,
+        name: "ChromaDB",
+        path: "/assets/logos/sqlite.svg",
+      },
+    ],
+  },
+  {
+    id: 7,
   title: "BookWorm",
   description:
     "A full-stack mobile application for sharing book recommendations with images, ratings, and captions.",

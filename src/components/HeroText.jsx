@@ -52,8 +52,8 @@ const HeroText = () => {
           </motion.p>
         </div>
         <motion.a
-          href="/XR_resume_DebojitGhosh.pdf"
-          download="Debojit_Ghosh_Resume.pdf"
+          href="/XRResume_Debojit.pdf"
+          download="XRResume_Debojit.pdf"
           className="relative inline-block px-4 py-4 mt-8 text-lg font-bold tracking-wider text-center text-white transition-all duration-200 rounded-lg cursor-pointer overflow-hidden hover:-translate-y-1 uppercase font-exo w-[220px]"
           variants={variants}
           initial="hidden"
@@ -123,8 +123,8 @@ const HeroText = () => {
           </motion.p>
         </div>
         <motion.a
-          href="/XR_resume_DebojitGhosh.pdf"
-          download="Debojit_Ghosh_Resume.pdf"
+          href="/XRResume_Debojit.pdf"
+          download="XRResume_Debojit.pdf"
           className="relative inline-block px-4 py-4 mt-6 text-base font-bold tracking-wider text-center text-white transition-all duration-200 rounded-lg cursor-pointer overflow-hidden hover:-translate-y-1 uppercase font-exo w-[200px]"
           variants={variants}
           initial="hidden"
