@@ -15,6 +15,18 @@ const Hero = () => {
     <section id="home" className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
       <HeroText />
       <ParallaxBackground />
+      <a
+        href="https://www.volgainfosys.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-16 right-6 z-10 flex flex-col items-end gap-1.5 px-4 py-3 rounded-2xl border border-lavender/20 bg-midnight/80 backdrop-blur-sm hover:border-lavender/50 transition-all duration-300 group"
+      >
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-lavender animate-pulse" />
+          <span className="text-sm font-semibold text-white">Unity Developer</span>
+        </div>
+        <span className="text-xs text-neutral-400 group-hover:text-lavender transition-colors">Volga Infosys · Mar 2026–Present</span>
+      </a>
       <figure
         className="absolute inset-0"
         style={{ width: "100vw", height: "100vh" }}

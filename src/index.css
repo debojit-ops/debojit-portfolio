@@ -119,6 +119,23 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06091f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7a57db, #5c33cc);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ca2f8c, #7a57db);
+}
+
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
 }
