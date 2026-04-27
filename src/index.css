@@ -221,3 +221,22 @@ body {
 .font-exo {
   font-family: 'Exo 2', sans-serif;
 }
+
+/* Contact inputs — prevent white autofill / focus flash */
+.contact-input {
+  background-color: rgba(255,255,255,0.05);
+  caret-color: #7a57db;
+  color: #e5e5e5;
+}
+.contact-input:focus {
+  background-color: rgba(122,87,219,0.07);
+  box-shadow: 0 0 0 1px rgba(122,87,219,0.35), inset 0 0 20px rgba(122,87,219,0.04);
+}
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #e5e5e5;
+  -webkit-box-shadow: 0 0 0 1000px #0f1228 inset, 0 0 0 1px rgba(122,87,219,0.35);
+  caret-color: #7a57db;
+  transition: background-color 9999s ease;
+}

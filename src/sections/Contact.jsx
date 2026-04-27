@@ -6,9 +6,14 @@ import { Particles } from "../components/Particles";
 import { mySocials } from "../constants";
 
 const inputClass =
-  "w-full rounded-xl px-4 py-3 text-sm bg-white/5 border border-white/8 text-neutral-200 placeholder-neutral-600 outline-none focus:border-lavender/40 focus:bg-white/8 transition-all duration-200";
+  "contact-input w-full rounded-xl px-4 py-3 text-sm bg-white/5 border border-white/8 text-neutral-200 placeholder-neutral-600 outline-none focus:border-lavender/40 transition-all duration-200";
 
-const EMAIL_DOMAINS = ["gmail.com", "outlook.com", "hotmail.com", "yahoo.com"];
+const EMAIL_DOMAINS = [
+  { domain: "gmail.com",   color: "#EA4335", bg: "rgba(234,67,53,0.12)",   border: "rgba(234,67,53,0.3)"   },
+  { domain: "outlook.com", color: "#0078D4", bg: "rgba(0,120,212,0.12)",   border: "rgba(0,120,212,0.3)"   },
+  { domain: "hotmail.com", color: "#0078D4", bg: "rgba(0,120,212,0.12)",   border: "rgba(0,120,212,0.3)"   },
+  { domain: "yahoo.com",   color: "#6001D2", bg: "rgba(96,1,210,0.12)",    border: "rgba(96,1,210,0.3)"    },
+];
 
 const EmailInput = ({ value, onChange }) => {
   const [suggestions, setSuggestions] = useState([]);
@@ -23,8 +28,8 @@ const EmailInput = ({ value, onChange }) => {
       const afterAt = val.slice(atIndex + 1).toLowerCase();
       setSuggestions(
         EMAIL_DOMAINS
-          .filter((d) => d.startsWith(afterAt) && d !== afterAt)
-          .map((d) => val.slice(0, atIndex + 1) + d)
+          .filter(({ domain: d }) => d.startsWith(afterAt) && d !== afterAt)
+          .map((entry) => ({ ...entry, full: val.slice(0, atIndex + 1) + entry.domain }))
       );
     } else {
       setSuggestions([]);
@@ -39,19 +44,10 @@ const EmailInput = ({ value, onChange }) => {
 
   const handleKeyDown = (e) => {
     if (!suggestions.length) return;
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setActiveIndex((i) => Math.min(i + 1, suggestions.length - 1));
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setActiveIndex((i) => Math.max(i - 1, 0));
-    } else if (e.key === "Enter" && activeIndex >= 0) {
-      e.preventDefault();
-      handlePick(suggestions[activeIndex]);
-    } else if (e.key === "Escape") {
-      setSuggestions([]);
-      setActiveIndex(-1);
-    }
+    if (e.key === "ArrowDown") { e.preventDefault(); setActiveIndex((i) => Math.min(i + 1, suggestions.length - 1)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); setActiveIndex((i) => Math.max(i - 1, 0)); }
+    else if (e.key === "Enter" && activeIndex >= 0) { e.preventDefault(); handlePick(suggestions[activeIndex].full); }
+    else if (e.key === "Escape") { setSuggestions([]); setActiveIndex(-1); }
   };
 
   return (
@@ -64,52 +60,86 @@ const EmailInput = ({ value, onChange }) => {
       <AnimatePresence>
         {suggestions.length > 0 && (
           <motion.ul
-            className="absolute z-50 left-0 right-0 mt-1.5 rounded-xl overflow-hidden"
+            className="absolute z-50 left-0 right-0 mt-2 rounded-2xl overflow-hidden"
             style={{
-              background: "linear-gradient(160deg, #161a31 0%, #0a0d20 100%)",
-              border: "1px solid rgba(122,87,219,0.2)",
-              boxShadow: "0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(122,87,219,0.06)",
+              background: "linear-gradient(160deg, #13162e 0%, #080b1e 100%)",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.7), inset 0 0 0 1px rgba(122,87,219,0.2), inset 0 1px 0 rgba(255,255,255,0.06)",
             }}
-            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            initial={{ opacity: 0, y: -8, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -6, scale: 0.98 }}
-            transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ opacity: 0, y: -6, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="px-3 pt-2 pb-1 border-b border-white/5">
-              <span className="text-[10px] uppercase tracking-widest text-neutral-700">Quick fill</span>
+            {/* Header */}
+            <div className="px-4 pt-3 pb-2.5 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" stroke="currentColor" strokeWidth={2} style={{ color: "rgba(122,87,219,0.6)" }}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: "rgba(122,87,219,0.55)" }}>Quick fill</span>
+              <div className="ml-auto flex items-center gap-1">
+                <kbd className="text-[9px] px-1.5 py-0.5 rounded font-mono" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.25)", border: "1px solid rgba(255,255,255,0.08)" }}>↑↓</kbd>
+                <kbd className="text-[9px] px-1.5 py-0.5 rounded font-mono" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.25)", border: "1px solid rgba(255,255,255,0.08)" }}>↵</kbd>
+              </div>
             </div>
-            {suggestions.map((full, i) => {
-              const domain = full.split("@")[1];
+            <div className="mx-3 mb-1" style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(122,87,219,0.3) 40%, rgba(202,47,140,0.2) 70%, transparent)" }} />
+
+            {suggestions.map(({ full, domain, color, bg, border }, i) => {
               const user = full.split("@")[0];
               const isActive = i === activeIndex;
               return (
-                <li
+                <motion.li
                   key={full}
                   onMouseDown={(e) => { e.preventDefault(); handlePick(full); }}
                   onMouseEnter={() => setActiveIndex(i)}
-                  className="flex items-center gap-3 px-3 py-2.5 cursor-pointer transition-all duration-100 last:rounded-b-xl"
-                  style={{ background: isActive ? "rgba(122,87,219,0.1)" : "transparent" }}
+                  className="relative flex items-center gap-3 px-4 py-3 cursor-pointer"
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.15 }}
                 >
+                  {/* active bg */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="email-active"
+                      className="absolute inset-0"
+                      style={{ background: `linear-gradient(90deg, ${bg} 0%, transparent 80%)` }}
+                      transition={{ duration: 0.15 }}
+                    />
+                  )}
+                  {/* left accent */}
+                  {isActive && (
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-full" style={{ background: color }} />
+                  )}
+
+                  {/* provider badge */}
                   <div
-                    className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold transition-all duration-100"
+                    className="relative z-10 w-8 h-8 rounded-xl flex items-center justify-center shrink-0 text-xs font-black transition-all duration-150"
                     style={{
-                      background: isActive ? "rgba(122,87,219,0.2)" : "rgba(255,255,255,0.04)",
-                      color: isActive ? "#7a57db" : "#4a4a6a",
-                      border: isActive ? "1px solid rgba(122,87,219,0.35)" : "1px solid rgba(255,255,255,0.06)",
+                      background: isActive ? bg : "rgba(255,255,255,0.04)",
+                      border: `1px solid ${isActive ? border : "rgba(255,255,255,0.07)"}`,
+                      color: isActive ? color : "rgba(255,255,255,0.25)",
+                      boxShadow: isActive ? `0 0 12px ${bg}` : "none",
                     }}
                   >
                     {domain[0].toUpperCase()}
                   </div>
-                  <span className="text-sm flex-1">
-                    <span className="text-neutral-700">{user}@</span>
-                    <span style={{ color: isActive ? "#a78bfa" : "#52526e" }}>{domain}</span>
-                  </span>
+
+                  {/* text */}
+                  <div className="relative z-10 flex-1 min-w-0">
+                    <p className="text-sm truncate">
+                      <span style={{ color: isActive ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.2)" }}>{user}@</span>
+                      <span className="font-semibold" style={{ color: isActive ? color : "rgba(255,255,255,0.35)" }}>{domain}</span>
+                    </p>
+                  </div>
+
                   {isActive && (
-                    <kbd className="text-[10px] text-lavender/50 border border-lavender/20 rounded px-1.5 py-0.5 font-mono shrink-0">↵</kbd>
+                    <kbd className="relative z-10 text-[10px] px-1.5 py-0.5 rounded font-mono shrink-0 transition-all duration-150"
+                      style={{ background: bg, color, border: `1px solid ${border}` }}
+                    >↵</kbd>
                   )}
-                </li>
+                </motion.li>
               );
             })}
+            <div className="h-2" />
           </motion.ul>
         )}
       </AnimatePresence>
