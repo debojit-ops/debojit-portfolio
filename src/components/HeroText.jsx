@@ -51,34 +51,6 @@ const HeroText = () => {
             XR Solutions
           </motion.p>
         </div>
-        <motion.a
-          href="/XRResume_Debojit.pdf"
-          download="XRResume_Debojit.pdf"
-          className="relative inline-block px-4 py-4 mt-8 text-lg font-bold tracking-wider text-center text-white transition-all duration-200 rounded-lg cursor-pointer overflow-hidden hover:-translate-y-1 uppercase font-exo w-[220px]"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 2 }}
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-lavender via-royal to-fuchsia bg-[length:200%_200%] animate-[gradient-flow_4s_ease_infinite]"></span>
-          <span className="relative z-10 block h-7">
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0">
-              <span className="whitespace-nowrap">Download Resume</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '3s'}}>
-              <span className="whitespace-nowrap">Steal My Resume</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '6s'}}>
-              <span className="whitespace-nowrap">Hire Me Maybe?</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '9s'}}>
-              <span className="whitespace-nowrap">Peek My Resume</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '12s'}}>
-              <span className="whitespace-nowrap">Resume Inside 👀</span>
-            </span>
-          </span>
-        </motion.a>
       </div>
       {/* Mobile View */}
       <div className="flex- flex-col space-y-6 md:hidden">
@@ -122,34 +94,6 @@ const HeroText = () => {
             Web Applications
           </motion.p>
         </div>
-        <motion.a
-          href="/XRResume_Debojit.pdf"
-          download="XRResume_Debojit.pdf"
-          className="relative inline-block px-4 py-4 mt-6 text-base font-bold tracking-wider text-center text-white transition-all duration-200 rounded-lg cursor-pointer overflow-hidden hover:-translate-y-1 uppercase font-exo w-[200px]"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 2 }}
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-lavender via-royal to-fuchsia bg-[length:200%_200%] animate-[gradient-flow_4s_ease_infinite]"></span>
-          <span className="relative z-10 block h-6">
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0">
-              <span className="whitespace-nowrap">Download Resume</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '3s'}}>
-              <span className="whitespace-nowrap">Steal My Resume</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '6s'}}>
-              <span className="whitespace-nowrap">Hire Me Maybe?</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '9s'}}>
-              <span className="whitespace-nowrap">Peek My Resume</span>
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center animate-[text-fade_15s_ease-in-out_infinite] opacity-0" style={{animationDelay: '12s'}}>
-              <span className="whitespace-nowrap">Resume Inside 👀</span>
-            </span>
-          </span>
-        </motion.a>
       </div>
     </div>
   );
