@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+
 const ProjectDetails = ({
   title,
   description,
@@ -7,78 +8,135 @@ const ProjectDetails = ({
   image,
   tags,
   href,
+  noLink,
   closeModal,
 }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
   }, []);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
+    <AnimatePresence>
+      {/* Backdrop */}
       <motion.div
-        className="relative w-[95vw] max-w-4xl max-h-[90vh] flex flex-col border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        style={{ backgroundColor: "rgba(3,4,18,0.55)", backdropFilter: "blur(8px)" }}
+        onClick={closeModal}
       >
-        <button
-          onClick={closeModal}
-          className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500 z-10"
+        {/* Modal */}
+        <motion.div
+          className="relative w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl overflow-hidden border border-white/8 shadow-2xl"
+          style={{ background: "linear-gradient(160deg, #161a31 0%, #06091f 100%)" }}
+          initial={{ opacity: 0, y: 40, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.97 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          onClick={(e) => e.stopPropagation()}
         >
-          <img src="assets/close.svg" className="w-6 h-6" />
-        </button>
+          {/* Hero image */}
+          <div className="relative shrink-0 h-56 md:h-72 overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+            {/* Gradient overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06091f] via-[#06091f]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06091f]/40 to-transparent" />
 
-        {/* Image with title overlay */}
-        <div className="relative shrink-0">
-          <img src={image} alt={title} className="w-full rounded-t-2xl object-cover h-80 md:h-96" />
-          <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-transparent to-transparent rounded-t-2xl" />
-          <h5 className="absolute bottom-4 left-5 text-2xl font-bold text-white drop-shadow-lg">{title}</h5>
-        </div>
-
-        {/* Scrollable content */}
-        <div className="p-5 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gradient-to-b [&::-webkit-scrollbar-thumb]:from-lavender [&::-webkit-scrollbar-thumb]:to-royal">
-
-          {/* Bullet points */}
-          <div className="space-y-3 mb-5">
-            {subDescription.map((subDesc, index) => (
-              <div key={index} className="flex gap-3 items-start">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-lavender shrink-0" />
-                <p className="font-normal text-neutral-300 leading-relaxed">{subDesc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Tags + link */}
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
-            <div className="flex gap-2 flex-wrap">
-              {tags.map((tag) => (
-                <div
-                  key={tag.id}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-neutral-300"
-                >
-                  {tag.path && <img src={tag.path} alt={tag.name} className="w-4 h-4 rounded-sm" />}
-                  {tag.name}
-                </div>
-              ))}
-            </div>
-            {href ? (
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation shrink-0 ml-3"
+            {/* Title over image */}
+            <div className="absolute bottom-0 left-0 p-6">
+              <motion.h3
+                className="text-2xl md:text-3xl font-bold text-white leading-tight"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.4 }}
               >
-                View Project{" "}
-                <img src="assets/arrow-up.svg" className="size-4" />
-              </a>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-lavender border border-dashed border-lavender/40 rounded-full bg-lavender/5 shrink-0 ml-3">
-                Project under NDA · Not publicly displayable
-              </span>
-            )}
+                {title}
+              </motion.h3>
+              {description && (
+                <motion.p
+                  className="mt-1.5 text-sm text-neutral-400 max-w-lg"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.22, duration: 0.4 }}
+                >
+                  {description}
+                </motion.p>
+              )}
+            </div>
+
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-200 backdrop-blur-sm"
+            >
+              <img src="assets/close.svg" className="w-4 h-4 opacity-70" alt="close" />
+            </button>
           </div>
-        </div>
+
+          {/* Scrollable body */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-6 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-lavender/30">
+
+            {/* Bullet points */}
+            <ul className="space-y-3">
+              {subDescription.map((point, i) => (
+                <motion.li
+                  key={i}
+                  className="flex gap-3 items-start"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + i * 0.06, duration: 0.35 }}
+                >
+                  <span className="mt-2 w-1 h-1 rounded-full bg-lavender shrink-0" />
+                  <p className="text-sm text-neutral-300 leading-relaxed">{point}</p>
+                </motion.li>
+              ))}
+            </ul>
+
+            {/* Footer: tags + link */}
+            <div className="pt-5 border-t border-white/8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag.id}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-white/5 border border-white/10 text-neutral-400"
+                  >
+                    {tag.path && (
+                      <img src={tag.path} alt={tag.name} className="w-3.5 h-3.5 rounded-sm object-contain" />
+                    )}
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              {href ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-royal to-lavender hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-lavender/20"
+                >
+                  View Project
+                  <img src="assets/arrow-up.svg" className="w-3.5 h-3.5" alt="" />
+                </a>
+              ) : noLink ? null : (
+                <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-lavender/70 border border-dashed border-lavender/30 rounded-full bg-lavender/5">
+                  Under NDA · Not publicly available
+                </span>
+              )}
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
-    </div>
+    </AnimatePresence>
   );
 };
 

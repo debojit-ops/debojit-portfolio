@@ -2,7 +2,7 @@ export const myProjects = [
   {
     id: 0,
     title: "VR Training Simulation – Indian Defence",
-    description: "",
+    description: "A VR-based defence training simulator built for the Indian Armed Forces, featuring real-time multi-device synchronization over LAN.",
     subDescription: [
       "Developed a VR-based aircraft simulation in Unity with dual radar systems using client-server architecture.",
       "Implemented real-time LAN communication using Mirror TCP for persistent multi-device synchronization.",
@@ -270,6 +270,7 @@ export const myProjects = [
     "Used Zustand for state management and implemented infinite scrolling for better UX.",
   ],
     href: "",
+    noLink: true,
     logo: "",
     image: "/assets/projects/bookworm.png",
     tags: [
