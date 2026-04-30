@@ -1,4 +1,3 @@
-import { twMerge } from "tailwind-merge";
 import Marquee from "../components/Marquee";
 import { reviews } from "../constants";
 import { Particles } from "../components/Particles";
@@ -8,26 +7,45 @@ const secondRow = reviews.slice(reviews.length / 2);
 const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
-      className={twMerge(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 border-gray-50/[.1] bg-gradient-to-r bg-indigo to-storm hover:bg-royal hover-animation"
-      )}
+      className="relative h-full w-64 cursor-pointer overflow-hidden rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1"
+      style={{
+        background: "linear-gradient(160deg, #161a31 0%, #06091f 100%)",
+        border: "1px solid rgba(122,87,219,0.18)",
+        boxShadow: "0 0 0 0 rgba(122,87,219,0), inset 0 1px 0 rgba(255,255,255,0.05)",
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.border = "1px solid rgba(122,87,219,0.45)";
+        e.currentTarget.style.boxShadow = "0 0 24px rgba(122,87,219,0.15), inset 0 1px 0 rgba(255,255,255,0.06)";
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.border = "1px solid rgba(122,87,219,0.18)";
+        e.currentTarget.style.boxShadow = "0 0 0 0 rgba(122,87,219,0), inset 0 1px 0 rgba(255,255,255,0.05)";
+      }}
     >
-      <div className="flex flex-row items-center gap-2">
+      {/* Top accent */}
+      <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(122,87,219,0.4), transparent)" }} />
+
+      <div className="flex flex-row items-center gap-2.5 mb-3">
         <img
-          className="rounded-full bg-white/10"
+          className="rounded-full"
+          style={{ border: "1px solid rgba(122,87,219,0.25)", background: "rgba(122,87,219,0.1)" }}
           width="32"
           height="32"
           alt=""
           src={img}
         />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-white">
+          <figcaption className="text-sm font-semibold text-white leading-tight">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-white/40">{username}</p>
+          <p className="text-[11px] text-lavender/50">{username}</p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+
+      {/* Divider */}
+      <div className="h-px w-full mb-3" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)" }} />
+
+      <blockquote className="text-xs text-neutral-400 leading-relaxed">{body}</blockquote>
     </figure>
   );
 };
