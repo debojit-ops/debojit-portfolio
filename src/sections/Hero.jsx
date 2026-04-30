@@ -104,7 +104,11 @@ const Hero = () => {
   };
 
   const handleConfirm = () => {
-    window.open(modal.url, "_blank", "noopener,noreferrer");
+    const a = document.createElement("a");
+    a.href = modal.url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.click();
     setModal(null);
   };
 
