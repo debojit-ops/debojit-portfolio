@@ -154,7 +154,7 @@ export default function LoadingScreen({ onComplete }) {
             </div>
 
             {/* Line 2 — gradient, typewriter */}
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center items-end">
               {LINE2.split("").map((letter, i) => (
                 <motion.span
                   key={i}
@@ -179,32 +179,37 @@ export default function LoadingScreen({ onComplete }) {
                 </motion.span>
               ))}
               {/* Animated dots after line 2 */}
-              {[0, 1, 2].map((d) => (
-                <motion.span
-                  key={`d2-${d}`}
-                  className="font-black"
-                  style={{
-                    fontSize: "clamp(2rem, 5vw, 3rem)",
-                    lineHeight: 1.1,
-                    background: "linear-gradient(135deg, #a78bfa 0%, #7c3aed 40%, #ec4899 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    whiteSpace: "pre",
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{
-                    delay: 0.3 + LINE1.length * 0.07 + 0.5 + LINE2.length * 0.07 + d * 0.4,
-                    duration: 0.6,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    repeatDelay: 0.8,
-                    ease: "easeInOut",
-                  }}
-                >
-                  .
-                </motion.span>
-              ))}
+              <div className="flex items-end gap-2 ml-2 pb-[0.45rem]">
+                {[0, 1, 2].map((d) => (
+                  <motion.span
+                    key={`d2-${d}`}
+                    className="block rounded-full"
+                    style={{
+                      width: 8,
+                      height: 8,
+                      background: "linear-gradient(135deg, #a78bfa, #ec4899)",
+                    }}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{
+                      scale: [0.6, 1.4, 0.6],
+                      opacity: [0, 0.3, 1, 0.3],
+                      boxShadow: [
+                        "0 0 0px rgba(167,139,250,0)",
+                        "0 0 4px rgba(167,139,250,0.3)",
+                        "0 0 14px rgba(167,139,250,1), 0 0 28px rgba(236,72,153,0.6)",
+                        "0 0 4px rgba(167,139,250,0.3)",
+                      ],
+                    }}
+                    transition={{
+                      delay: 0.3 + LINE1.length * 0.07 + 0.5 + LINE2.length * 0.07 + 0.3 + d * 0.5,
+                      duration: 1.8,
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      ease: "easeInOut",
+                    }}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Divider */}
