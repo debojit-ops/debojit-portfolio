@@ -3,11 +3,13 @@ import Card from "../components/Card";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 import { Globe } from "../components/globe";
+import { Particles } from "../components/Particles";
 
 const About = () => {
   const grid2Container = useRef();
   return (
-    <section className="c-space section-spacing" id="about">
+    <section className="relative c-space section-spacing font-syne" id="about">
+      <Particles className="absolute inset-0 -z-10" quantity={120} ease={80} color="#ffffff" refresh />
       <div className="flex items-end justify-between mb-0">
         <h2 className="text-heading">About Me</h2>
       </div>

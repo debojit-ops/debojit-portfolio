@@ -6,7 +6,7 @@ import { Particles } from "../components/Particles";
 import { mySocials } from "../constants";
 
 const inputClass =
-  "contact-input w-full rounded-xl px-4 py-3 text-sm bg-white/5 border border-white/8 text-neutral-200 placeholder-neutral-600 outline-none focus:border-lavender/40 transition-all duration-200";
+  "contact-input w-full rounded-xl px-4 py-3 text-sm text-neutral-200 placeholder-neutral-600 outline-none transition-all duration-200";
 
 const EMAIL_DOMAINS = [
   { domain: "gmail.com",   color: "#EA4335", bg: "rgba(234,67,53,0.12)",   border: "rgba(234,67,53,0.3)"   },
@@ -307,8 +307,12 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
           <div
-            className="rounded-2xl border border-white/8 p-6 md:p-8"
-            style={{ background: "linear-gradient(160deg, #161a31 0%, #06091f 100%)" }}
+            className="rounded-2xl p-6 md:p-8"
+            style={{
+              background: "linear-gradient(160deg, #161a31 0%, #06091f 100%)",
+              border: "1px solid rgba(122,87,219,0.18)",
+              boxShadow: "0 0 40px rgba(122,87,219,0.06), inset 0 1px 0 rgba(255,255,255,0.05)",
+            }}
           >
             <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -343,7 +347,13 @@ const Contact = () => {
                 </label>
                 <label
                   htmlFor="attachment"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-dashed border-white/10 bg-white/3 hover:border-lavender/30 hover:bg-lavender/5 transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-200"
+                  style={{
+                    border: "1px dashed rgba(255,255,255,0.1)",
+                    background: "rgba(255,255,255,0.02)",
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(122,87,219,0.4)"; e.currentTarget.style.background = "rgba(122,87,219,0.05)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.background = "rgba(255,255,255,0.02)"; }}
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-neutral-500 shrink-0" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
