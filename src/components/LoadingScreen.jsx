@@ -31,7 +31,7 @@ export default function LoadingScreen({ onComplete }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      progressRef.current = Math.min(100, progressRef.current + Math.random() * 4 + 1);
+      progressRef.current = Math.min(100, progressRef.current + Math.random() * 7 + 2.5);
       setProgress(Math.floor(progressRef.current));
       if (progressRef.current >= 100) {
         clearInterval(interval);

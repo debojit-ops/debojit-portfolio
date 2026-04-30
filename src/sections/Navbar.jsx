@@ -210,7 +210,7 @@ const Navbar = () => {
         backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
       }}
       transition={{ duration: 0.3 }}
-      style={{ borderBottomWidth: 1, borderBottomStyle: "solid" }}
+      style={{ borderBottom: "1px solid transparent" }}
     >
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between h-14">
