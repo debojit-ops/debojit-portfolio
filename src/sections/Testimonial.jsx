@@ -54,7 +54,12 @@ export default function Testimonial() {
   return (
     <div className="relative items-start mt-25 md:mt-35 c-space">
       <Particles className="absolute inset-0 -z-10" quantity={120} ease={80} color="#ffffff" refresh />
-      <h2 className="text-heading">Beyond Work</h2>
+      <div className="flex items-end gap-4 mb-12">
+        <h2 className="text-heading">Beyond Work</h2>
+        <span className="mb-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-lavender/10 border border-lavender/20 text-lavender/70 tracking-widest">
+          PASSIONS
+        </span>
+      </div>
       <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (

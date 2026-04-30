@@ -10,8 +10,11 @@ const About = () => {
   return (
     <section className="relative c-space section-spacing font-syne" id="about">
       <Particles className="absolute inset-0 -z-10" quantity={120} ease={80} color="#ffffff" refresh />
-      <div className="flex items-end justify-between mb-0">
+      <div className="flex items-end gap-4 mb-0">
         <h2 className="text-heading">About Me</h2>
+        <span className="mb-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-lavender/10 border border-lavender/20 text-lavender/70 tracking-widest">
+          WHO I AM
+        </span>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
