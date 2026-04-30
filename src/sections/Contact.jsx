@@ -55,7 +55,7 @@ const EmailInput = ({ value, onChange }) => {
       <input
         id="email" name="email" type="email" className={inputClass}
         placeholder="you@email.com" autoComplete="off"
-        value={value} onChange={handleChange} onKeyDown={handleKeyDown} required
+        value={value} onChange={handleChange} onKeyDown={handleKeyDown}
       />
       <AnimatePresence>
         {suggestions.length > 0 && (
@@ -181,6 +181,9 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.name.trim()) { showAlertMessage("danger", "Please enter your name."); return; }
+    if (!formData.email.trim()) { showAlertMessage("danger", "Please enter your email."); return; }
+    if (!formData.message.trim()) { showAlertMessage("danger", "Please enter a message."); return; }
     setIsLoading(true);
     try {
       const fileUrl = file ? await uploadToCloudinary(file) : "No attachment";
@@ -210,7 +213,6 @@ const Contact = () => {
   return (
     <section id="contact" className="relative c-space mt-20 md:mt-30 pb-10">
       <Particles className="absolute inset-0 -z-50" quantity={80} ease={80} color="#ffffff" refresh />
-      {showAlert && <Alert type={alertType} text={alertMessage} />}
 
       {/* Header */}
       <div className="flex items-end gap-4 mb-12">
@@ -322,7 +324,7 @@ const Contact = () => {
                     id="name"
                     name="name" type="text" className={`${inputClass} capitalize`}
                     placeholder="Your Name" autoComplete="name"
-                    value={formData.name} onChange={handleChange} required
+                    value={formData.name} onChange={handleChange}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -336,7 +338,7 @@ const Contact = () => {
                 <textarea
                   name="message" rows="5" className={inputClass}
                   placeholder="Tell me about your project or idea..."
-                  value={formData.message} onChange={handleChange} required
+                  value={formData.message} onChange={handleChange}
                 />
               </div>
 
@@ -364,6 +366,8 @@ const Contact = () => {
                 </label>
                 <input id="attachment" name="attachment" type="file" className="hidden" onChange={(e) => setFile(e.target.files[0])} />
               </div>
+
+              {showAlert && <Alert type={alertType} text={alertMessage} />}
 
               <button
                 type="submit"
