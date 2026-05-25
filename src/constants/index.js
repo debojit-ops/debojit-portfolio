@@ -1,6 +1,42 @@
 export const myProjects = [
   {
     id: 0,
+    title: "EngineVR",
+    description: "A VR-based engine visualization and interaction platform designed to provide immersive learning and simulation experiences for complex engine systems.",
+    subDescription: [
+      "Developed interactive features such as X-Ray Vision, Separated View, Do-It-Yourself (manual assembly), and Show Working mode with animated workflows like airflow in jet engines and oil flow in diesel engines.",
+      "Built automation tools for one-click engine integration, including automatic layer assignment, script setup, and feature integration, reducing setup time to 2–3 seconds.",
+      "Created an AI-powered workflow using the Groq API and LLMs to analyze engine meshes, materials, and structures to automatically generate engine part names, descriptions, and audio integration.",
+      "Developed additional optimization tools that reduced complete engine setup and configuration time from nearly 3 hours to approximately 3 minutes.",
+    ],
+    href: "https://drive.google.com/drive/folders/1iK53D54YUcKMZ9XDWpC-N2K1bDmnf2ko",
+    logo: "",
+    image: "/assets/projects/EngineVR.png",
+    tags: [
+      {
+        id: 1,
+        name: "Unity VR",
+        path: "/assets/logos/unity.png",
+      },
+      {
+        id: 2,
+        name: "C#",
+        path: "/assets/logos/csharp.svg",
+      },
+      {
+        id: 3,
+        name: "AI Integration",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 4,
+        name: "Automation",
+        path: "/assets/logos/vitejs.svg",
+      },
+    ],
+  },
+  {
+    id: 1,
     title: "VR Training Simulation – Indian Defence",
     description: "A VR-based defence training simulator built for the Indian Armed Forces, featuring real-time multi-device synchronization over LAN.",
     subDescription: [
@@ -37,7 +73,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     title: "Reality Drop AR",
     description:
       "An AR application that allows users to place and interact with 3D models in real-world space using mobile devices.",
@@ -74,7 +110,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Try My Furniture",
     description:
       "A virtual furniture try-on mobile application that enables users to preview furniture in their own space using AR.",
@@ -111,7 +147,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Jet Turbine AR Simulator",
     description:
       "An educational AR simulator that visualizes a jet turbine with interactive internal components.",
@@ -148,7 +184,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Space Quest – 2D Game",
     description:
       "A space-themed 2D game featuring progressive difficulty and custom gameplay mechanics.",
@@ -185,7 +221,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Comparative Study: Marker vs Markerless AR",
     description:
       "A research-focused AR application comparing marker-based and markerless AR techniques.",
@@ -222,7 +258,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "Progressify — AI-Powered Adaptive Learning Platform",
     description: "",
     subDescription: [
@@ -258,7 +294,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 7,
+    id: 8,
   title: "BookWorm",
   description:
     "A full-stack mobile application for sharing book recommendations with images, ratings, and captions.",
