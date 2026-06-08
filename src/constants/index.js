@@ -9,7 +9,7 @@ export const myProjects = [
       "Created an AI-powered workflow using the Groq API and LLMs to analyze engine meshes, materials, and structures to automatically generate engine part names, descriptions, and audio integration.",
       "Developed additional optimization tools that reduced complete engine setup and configuration time from nearly 3 hours to approximately 3 minutes.",
     ],
-    href: "https://drive.google.com/drive/folders/1iK53D54YUcKMZ9XDWpC-N2K1bDmnf2ko",
+    href: "https://drive.google.com/file/d/18ngsk0mDH6Dg9vZq2PvKBvOZ-Yd3wq1F/view?usp=sharing",
     logo: "",
     image: "/assets/projects/EngineVR.png",
     tags: [
