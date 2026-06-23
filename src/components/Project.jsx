@@ -52,9 +52,16 @@ const Project = ({
 
             {/* Title + tags */}
             <div className="min-w-0">
-              <p className="text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300 leading-snug">
-                {title}
-              </p>
+              <div className="leading-snug">
+                <span className="text-lg font-semibold text-neutral-200 group-hover:text-white transition-colors duration-300">
+                  {title.includes("|") ? title.split("|")[0].trim() : title}
+                </span>
+                {title.includes("|") && (
+                  <span className="text-sm font-normal text-neutral-500 ml-2">
+                    | {title.split("|")[1].trim()}
+                  </span>
+                )}
+              </div>
               {description && (
                 <p className="mt-1 text-sm text-neutral-600 line-clamp-1 group-hover:text-neutral-400 transition-colors duration-300">
                   {description}

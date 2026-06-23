@@ -1,7 +1,7 @@
 export const myProjects = [
   {
     id: 0,
-    title: "EngineVR",
+    title: "EngineeringVR | Engine Learning and Visualization Platform for IIT",
     description: "A VR-based engine visualization and interaction platform designed to provide immersive learning and simulation experiences for complex engine systems.",
     subDescription: [
       "Developed interactive features such as X-Ray Vision, Separated View, Do-It-Yourself (manual assembly), and Show Working mode with animated workflows like airflow in jet engines and oil flow in diesel engines.",
@@ -37,7 +37,7 @@ export const myProjects = [
   },
   {
     id: 1,
-    title: "VR Training Simulation – Indian Defence",
+    title: "DefenceVR | Multi-Device Radar Simulation for Indian Armed Forces",
     description: "A VR-based defence training simulator built for the Indian Armed Forces, featuring real-time multi-device synchronization over LAN.",
     subDescription: [
       "Developed a VR-based aircraft simulation in Unity with dual radar systems using client-server architecture.",
@@ -74,7 +74,7 @@ export const myProjects = [
   },
   {
     id: 2,
-    title: "Reality Drop AR",
+    title: "RealityDrop | Markerless AR Object Placement & Interaction App",
     description:
       "An AR application that allows users to place and interact with 3D models in real-world space using mobile devices.",
     subDescription: [
@@ -111,7 +111,7 @@ export const myProjects = [
   },
   {
     id: 3,
-    title: "Try My Furniture",
+    title: "FurniSpace | Real-Time AR Furniture Try-On for Mobile",
     description:
       "A virtual furniture try-on mobile application that enables users to preview furniture in their own space using AR.",
     subDescription: [
@@ -148,7 +148,7 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "Jet Turbine AR Simulator",
+    title: "TurbineAR | Interactive Jet Engine Visualization Simulator",
     description:
       "An educational AR simulator that visualizes a jet turbine with interactive internal components.",
     subDescription: [
@@ -185,7 +185,7 @@ export const myProjects = [
   },
   {
     id: 5,
-    title: "Space Quest – 2D Game",
+    title: "SpaceQuest | Progressive 2D Space Shooter with Particle Systems",
     description:
       "A space-themed 2D game featuring progressive difficulty and custom gameplay mechanics.",
     subDescription: [
@@ -222,7 +222,7 @@ export const myProjects = [
   },
   {
     id: 6,
-    title: "Comparative Study: Marker vs Markerless AR",
+    title: "ARCompare | Research Study on Marker vs Markerless AR Techniques",
     description:
       "A research-focused AR application comparing marker-based and markerless AR techniques.",
     subDescription: [
@@ -259,7 +259,7 @@ export const myProjects = [
   },
   {
     id: 7,
-    title: "Progressify — AI-Powered Adaptive Learning Platform",
+    title: "Progressify | Agentic AI Adaptive Learning Platform with LLaMA 3.3",
     description: "",
     subDescription: [
       "LangGraph + Groq LLaMA 3.3-70B orchestrates a multi-step AI pipeline that generates checkpoints, study material, and MCQs for any topic via a FastAPI backend.",
@@ -295,7 +295,7 @@ export const myProjects = [
   },
   {
     id: 8,
-  title: "BookWorm",
+  title: "BookWorm | Full-Stack Mobile App for Social Book Recommendations",
   description:
     "A full-stack mobile application for sharing book recommendations with images, ratings, and captions.",
   subDescription: [
