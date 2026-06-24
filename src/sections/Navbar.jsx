@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const DROPDOWN_ITEMS = [
   {
     label: "View in browser",
-    href: "/Most Updated Resume/XR_resume_DebojitGhosh.pdf",
+    href: "/Most Updated Resume/XRResume_Debojit.pdf",
     target: "_blank",
     download: null,
     icon: (
@@ -16,9 +16,9 @@ const DROPDOWN_ITEMS = [
   },
   {
     label: "Download PDF",
-    href: "/Most Updated Resume/XR_resume_DebojitGhosh.pdf",
+    href: "/Most Updated Resume/XRResume_Debojit.pdf",
     target: "_self",
-    download: "XR_resume_DebojitGhosh.pdf",
+    download: "XRResume_Debojit.pdf",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 shrink-0" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -299,7 +299,7 @@ const Navbar = () => {
                 );
               })}
               <a
-                href="/Most Updated Resume/XR_resume_DebojitGhosh.pdf"
+                href="/Most Updated Resume/XRResume_Debojit.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-lavender border border-lavender/20 bg-lavender/5"
