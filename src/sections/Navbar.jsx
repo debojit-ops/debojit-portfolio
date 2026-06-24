@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const DROPDOWN_ITEMS = [
   {
     label: "View in browser",
-    href: "/Most Updated Resume/XRResume_Debojit.pdf",
+    href: "/XRResume_Debojit.pdf",
     target: "_blank",
     download: null,
     icon: (
@@ -16,7 +16,7 @@ const DROPDOWN_ITEMS = [
   },
   {
     label: "Download PDF",
-    href: "/Most Updated Resume/XRResume_Debojit.pdf",
+    href: "/XRResume_Debojit.pdf",
     target: "_self",
     download: "XRResume_Debojit.pdf",
     icon: (
@@ -299,7 +299,7 @@ const Navbar = () => {
                 );
               })}
               <a
-                href="/Most Updated Resume/XRResume_Debojit.pdf"
+                href="/XRResume_Debojit.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-lavender border border-lavender/20 bg-lavender/5"
