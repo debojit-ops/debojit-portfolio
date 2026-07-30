@@ -8,6 +8,7 @@ const ProjectDetails = ({
   image,
   tags,
   href,
+  extraLinks,
   noLink,
   closeModal,
 }) => {
@@ -104,9 +105,9 @@ const ProjectDetails = ({
             </ul>
 
             {/* Footer: tags + link */}
-            <div className="pt-5 border-t border-white/8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="pt-5 border-t border-white/8 flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 min-w-0">
                 {tags.map((tag) => (
                   <span
                     key={tag.id}
@@ -121,22 +122,38 @@ const ProjectDetails = ({
               </div>
 
               {/* CTA */}
-              {href ? (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-lavender/90 border border-lavender/30 bg-lavender/8 hover:bg-lavender/15 hover:border-lavender/50 hover:-translate-y-0.5 transition-all duration-200"
-                  style={{ boxShadow: "0 0 18px rgba(122,87,219,0.15)" }}
-                >
-                  View Project
-                  <img src="assets/arrow-up.svg" className="w-3.5 h-3.5 opacity-70" alt="" />
-                </a>
-              ) : noLink ? null : (
-                <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-lavender/60 border border-dashed border-lavender/25 rounded-full bg-lavender/5">
-                  Under NDA · Not publicly available
-                </span>
-              )}
+              <div className="flex items-center gap-2.5 shrink-0">
+                {href && (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold text-lavender/90 border border-lavender/30 bg-lavender/8 hover:bg-lavender/15 hover:border-lavender/50 hover:-translate-y-0.5 transition-all duration-200"
+                    style={{ boxShadow: "0 0 18px rgba(122,87,219,0.15)" }}
+                  >
+                    View Project
+                    <img src="assets/arrow-up.svg" className="w-3.5 h-3.5 opacity-70" alt="" />
+                  </a>
+                )}
+                {extraLinks?.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold text-lavender/90 border border-lavender/30 bg-lavender/8 hover:bg-lavender/15 hover:border-lavender/50 hover:-translate-y-0.5 transition-all duration-200"
+                    style={{ boxShadow: "0 0 18px rgba(122,87,219,0.15)" }}
+                  >
+                    {link.title || link.label}
+                    <img src="assets/arrow-up.svg" className="w-3.5 h-3.5 opacity-70" alt="" />
+                  </a>
+                ))}
+                {!href && !extraLinks?.length && !noLink && (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-lavender/60 border border-dashed border-lavender/25 rounded-full bg-lavender/5">
+                    Under NDA · Not publicly available
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </motion.div>

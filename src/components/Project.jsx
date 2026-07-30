@@ -8,6 +8,7 @@ const Project = ({
   description,
   subDescription,
   href,
+  extraLinks,
   noLink,
   image,
   tags,
@@ -127,6 +128,7 @@ const Project = ({
           image={image}
           tags={tags}
           href={href}
+          extraLinks={extraLinks}
           noLink={noLink}
           closeModal={() => setIsOpen(false)}
         />
