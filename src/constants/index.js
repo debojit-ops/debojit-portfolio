@@ -1,85 +1,6 @@
 export const myProjects = [
   {
     id: 0,
-    title: "EngineeringVR | Engine Learning and Visualization Platform for IIT",
-    description: "A VR-based engine visualization and interaction platform designed to provide immersive learning and simulation experiences for complex engine systems.",
-    subDescription: [
-      "Developed interactive features such as X-Ray Vision, Separated View, Do-It-Yourself (manual assembly), and Show Working mode with animated workflows like airflow in jet engines and oil flow in diesel engines.",
-      "Built automation tools for one-click engine integration, including automatic layer assignment, script setup, and feature integration, reducing setup time to 2–3 seconds.",
-      "Created an AI-powered workflow using the Groq API and LLMs to analyze engine meshes, materials, and structures to automatically generate engine part names, descriptions, and audio integration.",
-      "Developed additional optimization tools that reduced complete engine setup and configuration time from nearly 3 hours to approximately 3 minutes.",
-    ],
-    href: "https://drive.google.com/file/d/1jm9W2GjYiJyRqeArd4O7V4HdogQ-eCNI/view?usp=sharing",
-    extraLinks: [
-      {
-        title: "Automated Unity Tools",
-        href: "https://drive.google.com/file/d/1CltHXg4Jja4NTEKZUJrE6vRVYkeRFyvj/view?usp=sharing",
-      },
-    ],
-    logo: "",
-    image: "/assets/projects/EngineVR.png",
-    tags: [
-      {
-        id: 1,
-        name: "Unity VR",
-        path: "/assets/logos/unity.png",
-      },
-      {
-        id: 2,
-        name: "C#",
-        path: "/assets/logos/csharp.svg",
-      },
-      {
-        id: 3,
-        name: "AI Integration",
-        path: "/assets/logos/react.svg",
-      },
-      {
-        id: 4,
-        name: "Automation",
-        path: "/assets/logos/vitejs.svg",
-      },
-    ],
-  },
-  {
-    id: 1,
-    title: "DefenceVR | Multi-Device Radar Simulation for Indian Armed Forces",
-    description: "A VR-based defence training simulator built for the Indian Armed Forces, featuring real-time multi-device synchronization over LAN.",
-    subDescription: [
-      "Developed a VR-based aircraft simulation in Unity with dual radar systems using client-server architecture.",
-      "Implemented real-time LAN communication using Mirror TCP for persistent multi-device synchronization.",
-      "Transmitted and visualized live aircraft data including coordinates, distance metrics, and positional tracking.",
-      "Solved low-latency synchronization challenges to maintain real-time interaction across devices.",
-      "Supported both same-system and cross-system deployment with stable client-server connection via IP address.",
-    ],
-    href: "",
-    logo: "",
-    image: "/assets/projects/VRDefenceSim.png",
-    tags: [
-      {
-        id: 1,
-        name: "Unity VR",
-        path: "/assets/logos/unity.png",
-      },
-      {
-        id: 2,
-        name: "Mirror TCP",
-        path: "/assets/logos/csharp.svg",
-      },
-      {
-        id: 3,
-        name: "C#",
-        path: "/assets/logos/csharp-pink.png",
-      },
-      {
-        id: 4,
-        name: "Networking",
-        path: "/assets/logos/git.svg",
-      },
-    ],
-  },
-  {
-    id: 2,
     title: "RealityDrop | Markerless AR Object Placement & Interaction App",
     description:
       "An AR application that allows users to place and interact with 3D models in real-world space using mobile devices.",
@@ -116,7 +37,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 3,
+    id: 1,
     title: "FurniSpace | Real-Time AR Furniture Try-On for Mobile",
     description:
       "A virtual furniture try-on mobile application that enables users to preview furniture in their own space using AR.",
@@ -153,7 +74,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 4,
+    id: 2,
     title: "TurbineAR | Interactive Jet Engine Visualization Simulator",
     description:
       "An educational AR simulator that visualizes a jet turbine with interactive internal components.",
@@ -190,7 +111,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 5,
+    id: 3,
     title: "SpaceQuest | Progressive 2D Space Shooter with Particle Systems",
     description:
       "A space-themed 2D game featuring progressive difficulty and custom gameplay mechanics.",
@@ -227,7 +148,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 6,
+    id: 4,
     title: "ARCompare | Research Study on Marker vs Markerless AR Techniques",
     description:
       "A research-focused AR application comparing marker-based and markerless AR techniques.",
@@ -264,7 +185,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 7,
+    id: 5,
     title: "Progressify | Agentic AI Adaptive Learning Platform with LLaMA 3.3",
     description: "",
     subDescription: [
@@ -300,7 +221,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 8,
+    id: 6,
   title: "BookWorm | Full-Stack Mobile App for Social Book Recommendations",
   description:
     "A full-stack mobile application for sharing book recommendations with images, ratings, and captions.",
