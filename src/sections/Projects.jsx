@@ -3,6 +3,7 @@ import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { Particles } from "../components/Particles";
+import { useHiddenProjects } from "../App";
 
 const Projects = () => {
   const x = useMotionValue(0);
@@ -11,6 +12,7 @@ const Projects = () => {
   const springY = useSpring(y, { damping: 12, stiffness: 60 });
   const [preview, setPreview] = useState(null);
   const [activeTitle, setActiveTitle] = useState("");
+  const { showHidden } = useHiddenProjects();
 
   const handleMouseMove = (e) => {
     x.set(e.clientX + 24);
@@ -21,6 +23,14 @@ const Projects = () => {
     setPreview(image);
     setActiveTitle(title);
   };
+
+  // Filter projects based on showHidden state
+  const filteredProjects = myProjects.filter(project => {
+    if (project.hidden && !showHidden) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <section
@@ -33,7 +43,7 @@ const Projects = () => {
       <div className="flex items-end gap-4 mb-3">
         <h2 className="text-heading">Selected Projects</h2>
         <span className="mb-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-lavender/10 border border-lavender/20 text-lavender/70 tracking-widest">
-          {myProjects.length} WORKS
+          {filteredProjects.length} WORKS
         </span>
       </div>
 
@@ -46,7 +56,7 @@ const Projects = () => {
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-px w-full" />
 
       {/* Project list */}
-      {myProjects.map((project, index) => (
+      {filteredProjects.map((project, index) => (
         <Project
           key={project.id}
           index={index}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Alert from "../components/Alert";
 import { Particles } from "../components/Particles";
 import { mySocials } from "../constants";
+import { useHiddenProjects } from "../App";
 
 const inputClass =
   "contact-input w-full rounded-xl px-4 py-3 text-sm text-neutral-200 placeholder-neutral-600 outline-none transition-all duration-200";
@@ -154,10 +155,27 @@ const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
+  const { setShowHidden } = useHiddenProjects();
 
   const handleChange = (e) => {
     let { name, value } = e.target;
     if (name === "message" && value.length === 1) value = value.toUpperCase();
+    
+    // Check for secret code "unlock" (case-insensitive)
+    if (name === "message") {
+      const lowerValue = value.toLowerCase();
+      if (lowerValue.endsWith("unlock")) {
+        const lastWord = lowerValue.split(/\s+/).pop();
+        if (lastWord === "unlock") {
+          // Secret code detected!
+          setShowHidden(true);
+          setFormData({ ...formData, [name]: "" }); // Clear the message
+          showAlertMessage("success", "Hidden Projects Unlocked!");
+          return;
+        }
+      }
+    }
+    
     setFormData({ ...formData, [name]: value });
   };
 
