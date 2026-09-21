@@ -125,18 +125,32 @@ const Hero = () => {
       )}
       <div className="absolute bottom-16 right-6 z-10 flex flex-col items-end gap-3">
         <motion.a
+          href="https://wavelaps.com/"
+          onClick={(e) => handleClick(e, "Wavelaps", "https://wavelaps.com/", "#7a57db")}
+          className="flex flex-col items-end gap-1.5 px-4 py-3 rounded-2xl border border-lavender/20 bg-midnight/80 backdrop-blur-sm hover:border-lavender/50 transition-all duration-300 group cursor-pointer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-lavender animate-pulse" />
+            <span className="text-sm font-semibold text-white">Associate Interactive Developer</span>
+          </div>
+          <span className="text-xs text-neutral-400 group-hover:text-lavender transition-colors">Wavelaps · Sept 2026–Present</span>
+        </motion.a>
+        <motion.a
           href="https://www.volgainfosys.com/"
           onClick={(e) => handleClick(e, "Volga Infosys", "https://www.volgainfosys.com/", "#7a57db")}
-          className="flex flex-col items-end gap-1.5 px-4 py-3 rounded-2xl border border-lavender/20 bg-midnight/80 backdrop-blur-sm hover:border-lavender/50 transition-all duration-300 group cursor-pointer"
+          className="flex flex-col items-end gap-1.5 px-4 py-3 rounded-2xl border border-neutral-600/20 bg-midnight/80 backdrop-blur-sm hover:border-neutral-500/40 transition-all duration-300 group cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0, duration: 0.5 }}
         >
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-lavender animate-pulse" />
-            <span className="text-sm font-semibold text-white">Unity Developer</span>
+            <span className="w-2 h-2 rounded-full bg-neutral-500" />
+            <span className="text-sm font-semibold text-neutral-300">Unity Developer</span>
           </div>
-          <span className="text-xs text-neutral-400 group-hover:text-lavender transition-colors">Volga Infosys · Mar 2026–Present</span>
+          <span className="text-xs text-neutral-500 group-hover:text-neutral-400 transition-colors">Volga Infosys · Mar 2026–Sept 2026</span>
         </motion.a>
         <motion.a
           href="https://gitcservices.com/"
