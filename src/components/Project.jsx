@@ -2,6 +2,12 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import ProjectDetails from "./ProjectDetails";
 
+// Only devices with a real hovering pointer get the cursor-following preview;
+// on touch screens a tap fires mouseenter but never mouseleave, so it would stick.
+const canHover =
+  typeof window !== "undefined" &&
+  window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 const Project = ({
   index,
   title,
@@ -20,9 +26,12 @@ const Project = ({
     <>
       <motion.div
         className="group relative cursor-pointer my-2"
-        onMouseEnter={() => setPreview(image)}
+        onMouseEnter={() => canHover && setPreview(image)}
         onMouseLeave={() => setPreview(null)}
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setPreview(null);
+          setIsOpen(true);
+        }}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}

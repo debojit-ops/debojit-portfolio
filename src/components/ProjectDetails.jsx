@@ -14,8 +14,13 @@ const ProjectDetails = ({
 }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
-  }, []);
+    const onKey = (e) => { if (e.key === "Escape") closeModal(); };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [closeModal]);
 
   return (
     <AnimatePresence>
@@ -31,7 +36,7 @@ const ProjectDetails = ({
       >
         {/* Modal */}
         <motion.div
-          className="relative w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl overflow-hidden border border-white/8 shadow-2xl"
+          className="relative w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl overflow-y-auto roomy:overflow-hidden border border-white/8 shadow-2xl [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-lavender/30"
           style={{ background: "linear-gradient(160deg, #161a31 0%, #06091f 100%)" }}
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -39,8 +44,9 @@ const ProjectDetails = ({
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Hero image — fixed aspect ratio */}
-          <div className="relative shrink-0 w-full aspect-[16/7] overflow-hidden">
+          {/* Header: image, with the title overlaid on roomy screens and stacked below it on phones */}
+          <div className="relative shrink-0">
+          <div className="relative w-full aspect-video roomy:aspect-[16/7] short:aspect-auto short:h-28 overflow-hidden">
             <img
               src={image}
               alt={title}
@@ -48,11 +54,12 @@ const ProjectDetails = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#06091f] via-[#06091f]/30 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#06091f]/40 to-transparent" />
+          </div>
 
-            {/* Title over image */}
-            <div className="absolute bottom-0 left-0 p-6">
+            {/* Title: below the image on phones, over it on roomy screens */}
+            <div className="px-6 pt-1 roomy:absolute roomy:bottom-0 roomy:left-0 roomy:p-6">
               <motion.h3
-                className="text-2xl md:text-3xl font-bold text-white leading-tight"
+                className="text-xl sm:text-2xl roomy:text-3xl font-bold text-white leading-tight"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.4 }}
@@ -74,6 +81,7 @@ const ProjectDetails = ({
             {/* Close button */}
             <button
               onClick={closeModal}
+              aria-label="Close"
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-200 backdrop-blur-sm"
             >
               <img src="assets/close.svg" className="w-4 h-4 opacity-70" alt="close" />
@@ -81,7 +89,7 @@ const ProjectDetails = ({
           </div>
 
           {/* Scrollable body */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-lavender/30">
+          <div className="p-6 space-y-6 roomy:flex-1 roomy:min-h-0 roomy:overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-lavender/30">
 
             {/* Bullet points */}
             <ul className="space-y-3">

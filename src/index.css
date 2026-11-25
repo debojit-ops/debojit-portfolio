@@ -3,6 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+
+/* Roomy screens (tablet/desktop) vs. short screens (phones in landscape) */
+@custom-variant roomy (@media (min-width: 768px) and (min-height: 501px));
+@custom-variant short (@media (max-height: 500px));
 @theme {
   --color-primary: #030412;
   --color-midnight: #06091f;

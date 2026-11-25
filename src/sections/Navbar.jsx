@@ -192,13 +192,33 @@ const Navbar = () => {
     return scrollY.on("change", (v) => setScrolled(v > 40));
   }, [scrollY]);
 
-  const handleClick = (e, href) => {
-    e.preventDefault();
-    setIsOpen(false);
+  // Target to scroll to once the mobile menu has finished closing.
+  const pendingScroll = useRef(null);
+
+  const scrollToSection = (href) => {
     const el = document.querySelector(href);
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - 70;
     window.scrollTo({ top, behavior: "smooth" });
+  };
+
+  const handleClick = (e, href) => {
+    e.preventDefault();
+    if (isOpen) {
+      // Motion's height:"auto" exit animation resets window scroll while it
+      // measures, which cancels a smooth scroll started now. Scroll after exit.
+      pendingScroll.current = href;
+      setIsOpen(false);
+    } else {
+      scrollToSection(href);
+    }
+  };
+
+  const handleMenuExited = () => {
+    if (pendingScroll.current) {
+      scrollToSection(pendingScroll.current);
+      pendingScroll.current = null;
+    }
   };
 
   return (
@@ -271,7 +291,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={handleMenuExited}>
         {isOpen && (
           <motion.div
             className="sm:hidden border-t border-white/6 bg-midnight/95 backdrop-blur-xl"

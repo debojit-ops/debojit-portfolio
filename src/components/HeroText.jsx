@@ -81,7 +81,7 @@ const HeroText = () => {
           >
             <FlipWords
               words={words}
-              className="font-bold text-white text-7xl"
+              className="font-bold text-white text-[clamp(2.5rem,13vw,4.5rem)]"
             />
           </motion.div>
           <motion.p

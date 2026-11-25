@@ -174,19 +174,23 @@ const BentoCard = ({ item, index, featured = false }) => {
 
         {/* Bullets */}
         <ul className="space-y-2 flex-1">
-          {(featured ? item.contents : item.contents.slice(0, 3)).map((content, i) => (
-            <li key={i} className="flex items-start gap-2.5">
+          {/* Phones (single column) show every bullet; from md up, small cards keep 3 + "more" */}
+          {item.contents.map((content, i) => (
+            <li
+              key={i}
+              className={`flex items-start gap-2.5 ${!featured && i >= 3 ? "md:hidden" : ""}`}
+            >
               <span
-                className="mt-[7px] w-1.5 h-1.5 rounded-full shrink-0"
+                className="mt-2 md:mt-[7px] w-1.5 h-1.5 rounded-full shrink-0"
                 style={{ background: t.dot, boxShadow: `0 0 6px ${t.glow}` }}
               />
-              <p className="text-xs text-neutral-400 group-hover:text-neutral-300 leading-relaxed transition-colors duration-300">
+              <p className="text-[13px] md:text-xs text-neutral-400 group-hover:text-neutral-300 leading-relaxed transition-colors duration-300">
                 {content}
               </p>
             </li>
           ))}
           {!featured && item.contents.length > 3 && (
-            <li className="text-[10px] pl-4 transition-colors duration-300" style={{ color: t.badgeText, opacity: 0.5 }}>
+            <li className="hidden md:block text-[10px] pl-4 transition-colors duration-300" style={{ color: t.badgeText, opacity: 0.5 }}>
               +{item.contents.length - 3} more
             </li>
           )}
