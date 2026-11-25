@@ -2,7 +2,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
-export const FlipWords = ({ words, duration = 3000, className }) => {
+const DEFAULT_EXIT = {
+  opacity: 0,
+  y: -40,
+  x: 40,
+  filter: "blur(8px)",
+  scale: 2,
+  position: "absolute",
+};
+
+export const FlipWords = ({ words, duration = 3000, className, exit = DEFAULT_EXIT }) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -39,14 +48,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
           stiffness: 100,
           damping: 10,
         }}
-        exit={{
-          opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
-          position: "absolute",
-        }}
+        exit={exit}
         className={twMerge("z-10 inline-block relative text-left", className)}
         key={currentWord}
       >

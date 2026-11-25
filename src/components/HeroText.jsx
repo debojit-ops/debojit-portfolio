@@ -82,6 +82,9 @@ const HeroText = () => {
             <FlipWords
               words={words}
               className="font-bold text-white text-[clamp(2.5rem,13vw,4.5rem)]"
+              // Phones: no 2x scale / sideways slide on exit. That animation made
+              // the page wider than the screen, so phones kept re-zooming.
+              exit={{ opacity: 0, y: -24, filter: "blur(8px)", position: "absolute", left: 0, right: 0 }}
             />
           </motion.div>
           <motion.p

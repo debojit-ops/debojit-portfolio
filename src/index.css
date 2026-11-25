@@ -117,12 +117,21 @@
     }
   }
 }
+/* Safety net: nothing may make the page wider than the phone screen
+   (a wider page makes mobile browsers zoom out / re-zoom). */
+html {
+  overflow-x: clip;
+  /* The rotating hero word changes the hero's height every few seconds; with
+     scroll anchoring on, phones "corrected" for it by jumping the page back up. */
+  overflow-anchor: none;
+}
 body {
   background: #030412;
   font-family: "Funnel Display", sans-serif;
   color: white;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* clip (not hidden): never creates a scroll container, so window scrolling is unaffected */
+  overflow-x: clip;
   user-select: none;
   -webkit-user-select: none;
 }

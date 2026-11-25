@@ -13,11 +13,14 @@ const ProjectDetails = ({
   closeModal,
 }) => {
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    // Lock page scroll on <html>: with html overflow-x set in CSS, body's
+    // overflow no longer applies to the page viewport.
+    const root = document.documentElement;
+    root.style.overflow = "hidden";
     const onKey = (e) => { if (e.key === "Escape") closeModal(); };
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = "";
+      root.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
   }, [closeModal]);
