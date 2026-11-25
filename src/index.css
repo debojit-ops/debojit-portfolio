@@ -117,6 +117,17 @@
     }
   }
 }
+/* Footer: slow ticker of disciplines */
+@keyframes footer-ticker {
+  to { transform: translateX(-50%); }
+}
+.footer-ticker {
+  animation: footer-ticker 48s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-ticker { animation: none; }
+}
+
 /* Safety net: nothing may make the page wider than the phone screen
    (a wider page makes mobile browsers zoom out / re-zoom). */
 html {
